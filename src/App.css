@@ -108,3 +108,9 @@ h1 {
   align-self: center;
   background-color: black;
 }
+
+.completedClass {
+  text-decoration: line-through;
+}
+.notcompletedClass {
+}

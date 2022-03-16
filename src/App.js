@@ -27,13 +27,25 @@ function App() {
       key={prev.key}
       value={prev.text}
       handleDelete={handleDelete}
+      handleComplete={handleComplete}
       todo={prev}
+      completed={prev.completed}
     />
   ));
 
   function handleDelete(idElement) {
-    let newTodos = [...todos].filter((element) => element.id !== idElement);
+    let newTodos = todos.filter((element) => element.id !== idElement);
     setTodos(newTodos);
+  }
+
+  function handleComplete(id) {
+    let updatedTodos = todos.map((prev) => {
+      if (prev.id == id) {
+        prev.completed = !prev.completed;
+      }
+      return prev;
+    });
+    setTodos(updatedTodos);
   }
 
   console.log(todos);
